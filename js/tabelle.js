@@ -147,7 +147,7 @@ function tabelle(divID, fields, url) {
             for (var i = 0; i < selection.length; i++) {
                 $.get("/report/toverview/html/detailed_course_view.html", function (inhalt) {
                     //$("#getCourse").html(loader);
-                    var selectedCourseId = table.getDataTable().getFormattedValue(selection[0].row, 0);
+                    var selectedCourseId = table.getDataTable().getValue(selection[0].row, 0);
                     //console.log(selectedCourseId);
 
                     inhalt = inhalt.replace(/#ID#/g, selectedCourseId);
