@@ -4,7 +4,8 @@
         <base target="_self">
         <script>
             $( '#table_div_lehrorga' ).html(loader);
-            var fields = { 
+            var fields = {
+		scheduler: { bezeichnung: 'Planer', typ: 'number'},
 		gruppen: { bezeichnung: 'Gruppen', typ: 'number'},
 		};
             google.setOnLoadCallback(tabelle('lehrorga', fields, '/Lehrorganisation'));	
