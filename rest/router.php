@@ -194,7 +194,7 @@ function Dateien() {
 function Kommunikation() {
 	$app = \Slim\Slim::getInstance ();
 	$jtSorting = $app->request->get('jtSorting');
-	$mods = array('chat', 'forum');
+	$mods = array('chat', 'forum', 'adobeconnect');
 	echo GetTableOfCoursesWithAmountOfModules($mods, $jtSorting);
 }
 
@@ -208,14 +208,14 @@ function Tests() {
 function Kooperation() {
 	$app = \Slim\Slim::getInstance ();
 	$jtSorting = $app->request->get('jtSorting');
-	$mods = array('wiki', 'ouwiki', 'data', 'glossary', 'workshop');
+	$mods = array('wiki','ouwiki', 'etherpadlite', 'data', 'glossary', 'workshop');
 	echo GetTableOfCoursesWithAmountOfModules($mods, $jtSorting);
 }
 
 function Lehrorganisation() {
 	$app = \Slim\Slim::getInstance ();
 	$jtSorting = $app->request->get('jtSorting');
-	$mods = array('scheduler', 'gruppen');
+	$mods = array('scheduler','gruppen');
 	$additionalRows = "(SELECT COUNT(id) FROM {groups} WHERE courseid = {course}.id) AS gruppen,";
 	echo GetTableOfCoursesWithAmountOfModules($mods, $jtSorting, $additionalRows);
 }
