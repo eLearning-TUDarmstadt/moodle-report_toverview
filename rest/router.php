@@ -544,8 +544,7 @@ function inaktiveNutzer($minTimeDiff = 31536000) {
 
 function NeuesteKurse() {
 	GLOBAL $DB;
-	$sql = "SELECT TOP 50
-				mdl_course.timecreated,
+	$sql = "SELECT  mdl_course.timecreated,
     			mdl_course.fullname,
 				mdl_course.id,
 				mdl_course.category AS fbID,
@@ -557,8 +556,8 @@ function NeuesteKurse() {
 			ORDER BY timecreated
 			DESC";
 
-	$result = $DB->get_records_sql($sql);
-	$array = array("Result" => "OK", "Records" => $result );
+	$result = $DB->get_records_sql($sql, null, 0, 50);
+	$array = array("Result" => "OK", "Records" => $result);
 	sendeJSON($array);
 }
 
